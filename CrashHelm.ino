@@ -83,9 +83,15 @@ void handleInterrupt() {
     if (!gpsLocationFound) {
       gpsLocationFound = getGPSLocation();
     }
-
-    // Pulse sensor selalu membaca data
-    getPulseReading();
+    else {
+      Serial.print("Latitude: ");
+      Serial.println(gps.location.lat(), 6);
+      Serial.print("Longitude: ");
+      Serial.println(gps.location.lng(), 6);
+      
+      // Pulse sensor selalu membaca data
+      getPulseReading();
+    }
 
     delay(500); // Delay untuk memberikan waktu antar pembacaan
   }
@@ -96,10 +102,7 @@ bool getGPSLocation() {
   while (GPS.available() > 0) {
     if (gps.encode(GPS.read())) {
       if (gps.location.isValid()) {
-        Serial.print("Latitude: ");
-        Serial.println(gps.location.lat(), 6);
-        Serial.print("Longitude: ");
-        Serial.println(gps.location.lng(), 6);
+        Serial.println("GPS Location Valid.");
         return true; // Lokasi valid ditemukan
       }
     }
