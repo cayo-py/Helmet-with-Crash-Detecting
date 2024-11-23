@@ -26,7 +26,7 @@ Langkah mendapatkan chat id di Telegram:
     4. copy id yang diberikan dan paste pada bagian yang ada program ini.
 */
 #define BOTtoken "[BOTtoken]"
-#define CHAT_ID "CHAT_ID"
+#define CHAT_ID "[CHAT_ID]"
 
 // Definisi Pin
 #define PULSE_SENSOR_PIN 36 // Pin VP
